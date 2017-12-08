@@ -17,10 +17,9 @@ $(document).ready(function(){
 			}).done(function(choice){
 				console.log(choice.data[0]);
 				for(i= 0; i<choice.data.length; i++){
-					$('#players').prepend("<img src=" + choice.data[i].images.original.webp +" style = 'height = 400px'>");
+					$('#players').prepend("<img src=" + choice.data[i].images.original_still.url +" data state = 'still' style = 'height = 400px' class= 'gif'>");
 				}
 				})
-
 	}
 	function showButtons(){
 		$("playerBtns").empty();
@@ -32,6 +31,9 @@ $(document).ready(function(){
 			$(".playerBtns").append(getBtn);
 		}
 	}
+	$(".gif").on("click", function(){
+          $('img').attr("src", "choice.data[i].images.original.webp");
+    })
 	//When you click a button, ajax get the images
 	$(document).on("click", ".playa", displayPlayerInfo);
 	showButtons();
